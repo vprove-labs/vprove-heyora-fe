@@ -4,7 +4,7 @@ document.documentElement.classList.remove('no-js');
 // Three.js loads in its own chunk so the copy paints before the 3D scene.
 import('./scene.js').then(({ initScene }) => initScene(document.getElementById('scene')));
 
-document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelectorAll('.year').forEach((el) => (el.textContent = new Date().getFullYear()));
 
 // Nav turns solid once the hero scrolls away.
 const nav = document.querySelector('.nav');

@@ -554,10 +554,6 @@ h2 {
   letter-spacing: 0.04em;
 }
 
-.footer-sep {
-  margin: 0 6px;
-}
-
 /* Reveal */
 .reveal {
   opacity: 0;
@@ -633,9 +629,6 @@ h2 {
   .footer {
     flex-direction: column;
     align-items: flex-start;
-  }
-  .footer-sep {
-    display: none;
   }
   .footer-credit {
     display: block;
