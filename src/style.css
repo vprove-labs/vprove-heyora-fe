@@ -703,6 +703,30 @@ h2 {
   color: var(--gold);
 }
 
+.dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(246, 234, 216, 0.25);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.dots button[aria-current='true'] {
+  width: 24px;
+  background: var(--gold);
+}
+
 /* Story */
 .story {
   display: grid;
@@ -985,8 +1009,48 @@ h2 {
 }
 
 @media (max-width: 860px) {
+  /* Logo centred, menu button on the right, balanced by an empty left column. */
+  .nav {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+  }
+  .brand {
+    grid-column: 2;
+    justify-self: center;
+  }
   .nav-toggle {
     display: block;
+    grid-column: 3;
+  }
+  /* All six collections visible at once as a 3 x 2 selector. */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    overflow: visible;
+  }
+  .tab {
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .tab-sub {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+  @media (max-width: 420px) {
+    .tab-sub {
+      display: none;
+    }
+    .tab {
+      min-height: 52px;
+    }
+  }
+  .panel-blurb {
+    text-align: center;
   }
   .nav-links {
     position: absolute;
@@ -1036,8 +1100,28 @@ h2 {
   .brand-name {
     font-size: 2rem;
   }
+  /* Products become a swipeable carousel with the next card peeking in. */
   .cards {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 14px;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 4px var(--gutter) 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+  .cards .card {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+  .dots {
+    display: flex;
   }
   .notify-form {
     flex-direction: column;
