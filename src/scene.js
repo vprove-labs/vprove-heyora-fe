@@ -241,8 +241,10 @@ export function initScene(canvas) {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isSmall = window.innerWidth < 720;
-  // Wide screens put the chakra beside the hero copy; narrow ones float it above.
-  let wide = window.innerWidth / window.innerHeight > 1.1 && window.innerWidth > 1024;
+  // Chakra framing in world units, derived from the viewport so it never covers the hero copy.
+  // Must match the hero layout breakpoint in style.css: (min-width: 760px) and (min-aspect-ratio: 5/4).
+  const CHAKRA_SIZE = 5.8;
+  const frame = { wide: false, x: 0, y: 0, scale: 1, visH: 1 };
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
@@ -295,10 +297,23 @@ export function initScene(canvas) {
     const h = window.innerHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    // Keep the chakra framed on portrait phones.
-    camera.position.z = w / h < 0.8 ? 12.5 : 9;
-    wide = w / h > 1.1 && w > 1024;
     camera.updateProjectionMatrix();
+
+    const visH = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
+    const visW = visH * camera.aspect;
+    frame.visH = visH;
+    frame.wide = w >= 760 && w / h >= 1.25;
+    if (frame.wide) {
+      // Right-hand half, vertically centred beside the copy.
+      frame.x = visW * 0.25;
+      frame.y = visH * 0.02;
+      frame.scale = Math.min(visH * 0.62, visW * 0.4) / CHAKRA_SIZE;
+    } else {
+      // Top band above the copy (the hero reserves this space with padding-top).
+      frame.x = 0;
+      frame.y = visH * 0.22;
+      frame.scale = Math.min(visH * 0.26, visW * 0.82) / CHAKRA_SIZE;
+    }
   };
   window.addEventListener('resize', resize);
   resize();
@@ -327,18 +342,19 @@ export function initScene(canvas) {
     ringB.rotation.z = -t * 0.18;
     mala.rotation.z = t * 0.08;
 
-    // Chakra rises and drifts back as the visitor scrolls the story.
+    // On scroll the chakra recedes behind the content on wide screens and
+    // lifts out of view on narrow ones, so it never crosses the copy.
     const s = scrollProgress;
-    const baseX = wide ? 3.3 : 0;
-    const baseY = wide ? 0.2 : 2.9;
-    // On scroll it recedes behind the content rather than crossing the copy.
-    chakra.position.x = baseX + s * (wide ? 2.2 : 0);
-    chakra.position.y = baseY + s * (wide ? 1.2 : 2.5) + Math.sin(t * 0.8) * 0.12;
-    chakra.position.z = -s * 9;
+    const hp = Math.min(window.scrollY / window.innerHeight, 1.5);
+    const bob = Math.sin(t * 0.8) * 0.04 * frame.visH * 0.1;
+    if (frame.wide) {
+      chakra.position.set(frame.x + s * 3, frame.y + s * 1.2 + bob, -s * 12);
+    } else {
+      chakra.position.set(0, frame.y + hp * frame.visH * 0.6 + bob, 0);
+    }
     chakra.rotation.x = pointerSmooth.y * 0.35 + s * 0.8;
     chakra.rotation.y = pointerSmooth.x * 0.5 + s * 1.2;
-    const scale = (wide ? 1.05 : 0.62) * (1 - s * 0.35);
-    chakra.scale.setScalar(scale);
+    chakra.scale.setScalar(frame.scale * (1 - s * 0.3));
 
     fabric.position.y = -2.6 + s * 1.8;
 
