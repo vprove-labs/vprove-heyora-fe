@@ -871,6 +871,20 @@ h2 {
   color: var(--ink-mute);
 }
 
+.footer-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 195, 90, 0.5);
+  text-underline-offset: 3px;
+  transition: color 0.25s, text-decoration-color 0.25s;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: #f6c35a;
+  text-decoration-color: #f6c35a;
+}
+
 .heart {
   display: inline-block;
   width: 1em;
