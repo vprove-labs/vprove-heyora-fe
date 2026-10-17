@@ -62,7 +62,9 @@ const selectTab = (tab) => {
     const on = t === tab;
     t.setAttribute('aria-selected', on);
     t.tabIndex = on ? 0 : -1;
-    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    const panel = document.getElementById(t.getAttribute('aria-controls'));
+    panel.hidden = !on;
+    if (on) panel.querySelector('.cards')?.dispatchEvent(new Event('scroll'));
   }
 };
 tabs.forEach((tab, i) => {
@@ -78,6 +80,33 @@ tabs.forEach((tab, i) => {
     next.focus();
     next.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
   });
+});
+
+// Carousel dots for the swipeable product rows on phones.
+document.querySelectorAll('.panel').forEach((panel) => {
+  const track = panel.querySelector('.cards');
+  const cards = [...track.children];
+  const dots = document.createElement('div');
+  dots.className = 'dots';
+  dots.setAttribute('aria-label', 'Products');
+  cards.forEach((card, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show ${card.querySelector('h3').textContent}`);
+    dot.addEventListener('click', () =>
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: 'smooth' }),
+    );
+    dots.append(dot);
+  });
+  panel.append(dots);
+  const sync = () => {
+    // Hidden panels have no layout yet, so fall back to a step of 1.
+    const step = (cards[1] && cards[1].offsetLeft - cards[0].offsetLeft) || 1;
+    const active = Math.min(cards.length - 1, Math.round(track.scrollLeft / step));
+    [...dots.children].forEach((d, i) => d.setAttribute('aria-current', i === active));
+  };
+  track.addEventListener('scroll', sync, { passive: true });
+  sync();
 });
 
 // 3D tilt and glow on the collection cards (pointer devices only).
