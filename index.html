@@ -6,7 +6,7 @@
     <title>Heyora · Ayurvastra Activewear for Women · Launching Soon</title>
     <meta
       name="description"
-      content="Heyora brings Ayurvastra, India's ancient tradition of herb-dyed healing textiles, to modern women's dryfit innerwear, tees, hoodies and panties. Launching soon."
+      content="Heyora brings Ayurvastra, India's ancient tradition of herb-dyed healing textiles, to modern women's dryfit: innerwear, sports bras, leggings, yoga wear, tees, hoodies and loungewear. Launching soon."
     />
     <meta name="theme-color" content="#140b18" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -44,21 +44,30 @@
 
     <header class="nav">
       <a href="#top" class="brand" aria-label="Heyora home">
-        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 12c6 8 6 16 0 24-6-8-6-16 0-24zm0 24c9-3 16-1 20 6-9 3-16 1-20-6zm0 0c-9-3-16-1-20 6 9 3 16 1 20-6z" />
-          <circle cx="32" cy="48" r="3" />
-        </svg>
-        <span>Heyora</span>
+        <span class="brand-emblem" aria-hidden="true">
+          <svg class="brand-mark" viewBox="0 0 64 64">
+            <path d="M32 12c6 8 6 16 0 24-6-8-6-16 0-24zm0 24c9-3 16-1 20 6-9 3-16 1-20-6zm0 0c-9-3-16-1-20 6 9 3 16 1 20-6z" />
+            <circle cx="32" cy="48" r="3" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Heyora</span>
+          <span class="brand-tag">Ayurvastra · Est. 2026</span>
+        </span>
       </a>
-      <nav class="nav-links" aria-label="Sections">
-        <a href="#collection">Collection</a>
-        <a href="#ayurvastra">Ayurvastra</a>
-        <a href="#notify" class="nav-cta">Get early access</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links" aria-label="Sections">
+        <a href="#top" data-section="top">Home</a>
+        <a href="#collection" data-section="collection">Collections</a>
+        <a href="#ayurvastra" data-section="ayurvastra">Ayurvastra</a>
+        <a href="#notify" class="nav-cta" data-section="notify">Get early access</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section class="hero" id="home">
         <p class="eyebrow reveal">Ayurvastra · आयुर्वस्त्र</p>
         <h1 class="hero-title reveal">
           <span class="line">Ancient healing,</span>
@@ -76,36 +85,304 @@
       </section>
 
       <section id="collection" class="section">
+        <svg class="sprite" aria-hidden="true">
+          <defs>
+            <symbol id="g-tee" viewBox="0 0 64 64"><path d="M22 10 14 14 6 24l7 6 5-4v30h28V26l5 4 7-6-8-10-8-4c-2 5-18 5-20 0Z"/><path d="M26 11c2 3 10 3 12 0"/></symbol>
+            <symbol id="g-tunic" viewBox="0 0 64 64"><path d="M22 8 14 12 6 22l7 6 5-4v36h28V24l5 4 7-6-8-10-8-4c-2 5-18 5-20 0Z"/><path d="M18 52h28"/></symbol>
+            <symbol id="g-tank" viewBox="0 0 64 64"><path d="M24 8v8c0 6-4 8-6 12v28h28V28c-2-4-6-6-6-12V8h-4c0 6-8 6-8 0Z"/></symbol>
+            <symbol id="g-cami" viewBox="0 0 64 64"><path d="M23 8v15M41 8v15"/><path d="M20 24c4 5 20 5 24 0l4 32H16Z"/><path d="M17 48h30"/></symbol>
+            <symbol id="g-bra" viewBox="0 0 64 64"><path d="M20 10v15M44 10v15"/><path d="M11 40c0-9 6-15 12-15 4 0 7 3 9 7 2-4 5-7 9-7 6 0 12 6 12 15Z"/><path d="M11 40h42v7H11Z"/></symbol>
+            <symbol id="g-leggings" viewBox="0 0 64 64"><path d="M20 8h24l2 48H35l-3-32-3 32H18Z"/><path d="M20 14h24"/><path d="M41 22v8"/></symbol>
+            <symbol id="g-shorts" viewBox="0 0 64 64"><path d="M16 14h32l4 30-16 2-4-16-4 16-16-2Z"/><path d="M16 20h32"/></symbol>
+            <symbol id="g-skort" viewBox="0 0 64 64"><path d="M18 12h28l6 32H12Z"/><path d="M18 18h28M26 18l-4 26M38 18l4 26"/></symbol>
+            <symbol id="g-panty" viewBox="0 0 64 64"><path d="M10 20h44l-2 8c-8 4-14 10-16 18h-8c-2-8-8-14-16-18Z"/><path d="M12 25h40"/></symbol>
+            <symbol id="g-hoodie" viewBox="0 0 64 64"><path d="M24 12c0-8 16-8 16 0"/><path d="M24 12 14 16 6 34l6 4 6-8v26h28V30l6 8 6-4-8-18-10-4c-2 6-14 6-16 0Z"/><path d="M24 44h16l2 8H22Z"/></symbol>
+            <symbol id="g-jacket" viewBox="0 0 64 64"><path d="M24 10 14 14 6 34l6 4 6-8v26h28V30l6 8 6-4-8-20-10-4-4 4-4-4Z"/><path d="M32 14v42M24 10l8 6 8-6"/></symbol>
+            <symbol id="g-joggers" viewBox="0 0 64 64"><path d="M20 8h24l2 42 2 6H36v-6l-4-26-4 26v6H16l2-6Z"/><path d="M20 14h24M18 50h10M36 50h10"/></symbol>
+            <symbol id="g-set" viewBox="0 0 64 64"><path d="M24 6 18 9l-5 7 5 4 3-2v14h22V18l3 2 5-4-5-7-6-3c-1 3-11 3-12 0Z"/><path d="M21 36h22l1 22h-8l-4-14-4 14h-8Z"/></symbol>
+          </defs>
+        </svg>
         <div class="section-head reveal">
-          <p class="eyebrow">The first collection</p>
-          <h2>Four essentials. One living fabric.</h2>
+          <p class="eyebrow">The collections</p>
+          <h2>Designed around what she needs.</h2>
+          <p class="section-sub">Six herb-dyed dryfit collections, each built for a real need: heat, support, coverage, comfort, care and warmth.</p>
         </div>
-        <div class="cards">
-          <article class="card reveal" data-tilt>
-            <div class="card-glyph" style="--hue: var(--turmeric)">01</div>
-            <h3>Inners</h3>
-            <p>Breathable, moisture-wicking bralettes and layers, finished with neem and tulsi for all-day comfort.</p>
-            <span class="tag">Neem · Tulsi</span>
-          </article>
-          <article class="card reveal" data-tilt>
-            <div class="card-glyph" style="--hue: var(--madder)">02</div>
-            <h3>Tees</h3>
-            <p>Featherlight training tees that move with you, coloured with turmeric and madder root.</p>
-            <span class="tag">Turmeric · Manjistha</span>
-          </article>
-          <article class="card reveal" data-tilt>
-            <div class="card-glyph" style="--hue: var(--indigo)">03</div>
-            <h3>Hoodies</h3>
-            <p>Soft brushed-back hoodies with natural indigo depth, made for warm-ups and slow evenings.</p>
-            <span class="tag">Indigo · Vetiver</span>
-          </article>
-          <article class="card reveal" data-tilt>
-            <div class="card-glyph" style="--hue: var(--tulsi)">04</div>
-            <h3>Panties</h3>
-            <p>Skin-first everyday comfort with gentle herbal finishes and seamless, dry-touch edges.</p>
-            <span class="tag">Neem · Aloe</span>
-          </article>
+        <div class="tabs reveal" role="tablist" aria-label="Collections">
+          <button class="tab" role="tab" id="tab-dry" aria-controls="panel-dry" aria-selected="true">
+            <span class="tab-name">Stay Dry</span><span class="tab-sub">Heat &amp; sweat</span>
+          </button>
+          <button class="tab" role="tab" id="tab-hold" aria-controls="panel-hold" aria-selected="false" tabindex="-1">
+            <span class="tab-name">Hold</span><span class="tab-sub">Support &amp; bounce control</span>
+          </button>
+          <button class="tab" role="tab" id="tab-cover" aria-controls="panel-cover" aria-selected="false" tabindex="-1">
+            <span class="tab-name">Cover</span><span class="tab-sub">Coverage &amp; confidence</span>
+          </button>
+          <button class="tab" role="tab" id="tab-ease" aria-controls="panel-ease" aria-selected="false" tabindex="-1">
+            <span class="tab-name">Ease</span><span class="tab-sub">Chafe-free comfort</span>
+          </button>
+          <button class="tab" role="tab" id="tab-care" aria-controls="panel-care" aria-selected="false" tabindex="-1">
+            <span class="tab-name">Care</span><span class="tab-sub">Period &amp; skin care</span>
+          </button>
+          <button class="tab" role="tab" id="tab-layer" aria-controls="panel-layer" aria-selected="false" tabindex="-1">
+            <span class="tab-name">Layer</span><span class="tab-sub">Warmth &amp; travel</span>
+          </button>
         </div>
+        <div class="panel" role="tabpanel" id="panel-dry" aria-labelledby="tab-dry">
+          <p class="panel-blurb">Built for Indian summers: wick sweat fast, dry in minutes, breathe all day.</p>
+          <div class="cards">
+            <article class="card" data-tilt style="--hue: var(--turmeric)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-tee" /></svg>
+                <span class="swatch-herb">Turmeric</span>
+              </div>
+              <h3>Training Tees</h3>
+              <p>Featherlight knit that pulls sweat off the skin and dries in minutes.</p>
+              <ul class="chips"><li>Moisture-wicking</li><li>Quick-dry</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--tulsi)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-tank" /></svg>
+                <span class="swatch-herb">Neem</span>
+              </div>
+              <h3>Tank Tops</h3>
+              <p>Racerback tanks with laser-cut vents where heat builds up.</p>
+              <ul class="chips"><li>Breathable</li><li>Mesh vents</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--madder)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-cami" /></svg>
+                <span class="swatch-herb">Tulsi</span>
+              </div>
+              <h3>Everyday Inners</h3>
+              <p>Second-skin layers that keep you dry under work wear.</p>
+              <ul class="chips"><li>Dry-touch</li><li>Lightweight</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--indigo)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-cami" /></svg>
+                <span class="swatch-herb">Vetiver</span>
+              </div>
+              <h3>Camisoles</h3>
+              <p>Cooling under-layers for kurtas, sarees and shirts.</p>
+              <ul class="chips"><li>Cooling</li><li>Invisible lines</li></ul>
+            </article>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-hold" aria-labelledby="tab-hold" hidden>
+          <p class="panel-blurb">The right support for every activity, without wires that dig.</p>
+          <div class="cards">
+            <article class="card" data-tilt style="--hue: var(--tulsi)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-bra" /></svg>
+                <span class="swatch-herb">Tulsi</span>
+              </div>
+              <h3>Low-Impact Bras</h3>
+              <p>Soft hold for yoga, pilates and walking.</p>
+              <ul class="chips"><li>Wire-free</li><li>Removable cups</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--madder)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-bra" /></svg>
+                <span class="swatch-herb">Manjistha</span>
+              </div>
+              <h3>Medium-Impact Bras</h3>
+              <p>Balanced support for gym, cycling and dance.</p>
+              <ul class="chips"><li>Wide band</li><li>Adjustable straps</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--indigo)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-bra" /></svg>
+                <span class="swatch-herb">Indigo</span>
+              </div>
+              <h3>High-Impact Bras</h3>
+              <p>Encapsulated cups that lock in for running and HIIT.</p>
+              <ul class="chips"><li>Bounce control</li><li>Hook-back</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--turmeric)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-bra" /></svg>
+                <span class="swatch-herb">Aloe</span>
+              </div>
+              <h3>Bralettes</h3>
+              <p>All-day comfort with a gentle lift and no-dig band.</p>
+              <ul class="chips"><li>Wire-free</li><li>Soft-touch</li></ul>
+            </article>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-cover" aria-labelledby="tab-cover" hidden>
+          <p class="panel-blurb">Move freely without thinking twice: opaque, secure and stay-put.</p>
+          <div class="cards">
+            <article class="card" data-tilt style="--hue: var(--indigo)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-leggings" /></svg>
+                <span class="swatch-herb">Indigo</span>
+              </div>
+              <h3>Squat-Proof Leggings</h3>
+              <p>Dense, opaque knit with a high-rise waist that stays up.</p>
+              <ul class="chips"><li>Squat-proof</li><li>Phone pocket</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--madder)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-tunic" /></svg>
+                <span class="swatch-herb">Manjistha</span>
+              </div>
+              <h3>Longline Tops</h3>
+              <p>Hip-covering tunic tees for gym, travel and errands.</p>
+              <ul class="chips"><li>Full coverage</li><li>Relaxed fit</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--turmeric)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-skort" /></svg>
+                <span class="swatch-herb">Turmeric</span>
+              </div>
+              <h3>Active Skorts</h3>
+              <p>The ease of a skirt with built-in shorts underneath.</p>
+              <ul class="chips"><li>Built-in shorts</li><li>Pockets</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--tulsi)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-leggings" /></svg>
+                <span class="swatch-herb">Neem</span>
+              </div>
+              <h3>Full-Length Yoga Pants</h3>
+              <p>Ankle-length pants that never turn sheer when you stretch.</p>
+              <ul class="chips"><li>Non-sheer</li><li>4-way stretch</li></ul>
+            </article>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-ease" aria-labelledby="tab-ease" hidden>
+          <p class="panel-blurb">Nothing that rubs, rides up or pinches, even on long days.</p>
+          <div class="cards">
+            <article class="card" data-tilt style="--hue: var(--tulsi)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-shorts" /></svg>
+                <span class="swatch-herb">Aloe</span>
+              </div>
+              <h3>Anti-Chafe Shorts</h3>
+              <p>Longer inseam shorts with grippers that stop thigh rub.</p>
+              <ul class="chips"><li>No ride-up</li><li>Flatlock seams</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--madder)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-panty" /></svg>
+                <span class="swatch-herb">Neem</span>
+              </div>
+              <h3>Seamless Panties</h3>
+              <p>Tagless, edge-free briefs with no lines under fitted wear.</p>
+              <ul class="chips"><li>Seamless</li><li>Tagless</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--indigo)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-joggers" /></svg>
+                <span class="swatch-herb">Vetiver</span>
+              </div>
+              <h3>Easy Joggers</h3>
+              <p>Soft drawcord waist that never digs, with zip pockets.</p>
+              <ul class="chips"><li>No-dig waist</li><li>Zip pockets</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--turmeric)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-shorts" /></svg>
+                <span class="swatch-herb">Tulsi</span>
+              </div>
+              <h3>Training Shorts</h3>
+              <p>Quick-dry shorts with a built-in liner.</p>
+              <ul class="chips"><li>Built-in liner</li><li>Quick-dry</li></ul>
+            </article>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-care" aria-labelledby="tab-care" hidden>
+          <p class="panel-blurb">Gentle on sensitive skin and comfortable on every day of the month.</p>
+          <div class="cards">
+            <article class="card" data-tilt style="--hue: var(--madder)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-panty" /></svg>
+                <span class="swatch-herb">Neem</span>
+              </div>
+              <h3>Period Panties</h3>
+              <p>Absorbent, leak-resistant layers for heavy days and backup.</p>
+              <ul class="chips"><li>Leak-resistant</li><li>Breathable gusset</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--tulsi)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-panty" /></svg>
+                <span class="swatch-herb">Aloe</span>
+              </div>
+              <h3>Everyday Briefs</h3>
+              <p>Breathable cotton-touch gussets for daily intimate comfort.</p>
+              <ul class="chips"><li>Breathable gusset</li><li>Soft elastic</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--turmeric)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-tee" /></svg>
+                <span class="swatch-herb">Sandalwood</span>
+              </div>
+              <h3>Sleep Tees</h3>
+              <p>Loose, airy tees that stay dry through warm nights.</p>
+              <ul class="chips"><li>Cooling</li><li>Sensitive skin</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--indigo)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-set" /></svg>
+                <span class="swatch-herb">Vetiver</span>
+              </div>
+              <h3>Lounge Sets</h3>
+              <p>Relaxed co-ord sets for rest days and recovery.</p>
+              <ul class="chips"><li>Relaxed fit</li><li>Herb-dyed</li></ul>
+            </article>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-layer" aria-labelledby="tab-layer" hidden>
+          <p class="panel-blurb">Light layers for warm-ups, AC offices, commutes and cool evenings.</p>
+          <div class="cards">
+            <article class="card" data-tilt style="--hue: var(--indigo)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-hoodie" /></svg>
+                <span class="swatch-herb">Indigo</span>
+              </div>
+              <h3>Hoodies</h3>
+              <p>Brushed-back hoodies with thumbholes and a roomy hood.</p>
+              <ul class="chips"><li>Thumbholes</li><li>Soft brushed</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--madder)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-jacket" /></svg>
+                <span class="swatch-herb">Manjistha</span>
+              </div>
+              <h3>Zip Jackets</h3>
+              <p>Packable track jackets for runs and travel.</p>
+              <ul class="chips"><li>Packable</li><li>Zip pockets</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--tulsi)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-joggers" /></svg>
+                <span class="swatch-herb">Neem</span>
+              </div>
+              <h3>Joggers</h3>
+              <p>Tapered joggers that go from studio to street.</p>
+              <ul class="chips"><li>Tapered</li><li>4-way stretch</li></ul>
+            </article>
+            <article class="card" data-tilt style="--hue: var(--turmeric)">
+              <div class="swatch" aria-hidden="true">
+                <svg class="garment"><use href="#g-set" /></svg>
+                <span class="swatch-herb">Turmeric</span>
+              </div>
+              <h3>Co-ord Sets</h3>
+              <p>Matching top and bottom sets, herb-dyed to pair perfectly.</p>
+              <ul class="chips"><li>Matching set</li><li>Travel-ready</li></ul>
+            </article>
+          </div>
+        </div>
+        <ul class="features reveal" aria-label="Every Heyora piece is">
+          <li>Moisture-wicking</li>
+          <li>Quick-dry</li>
+          <li>4-way stretch</li>
+          <li>Breathable</li>
+          <li>Squat-proof</li>
+          <li>Flatlock seams</li>
+          <li>Tagless comfort</li>
+          <li>Herb-dyed colour</li>
+        </ul>
       </section>
 
       <section id="ayurvastra" class="section story">
