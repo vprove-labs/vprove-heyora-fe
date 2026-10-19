@@ -1,459 +1,1135 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Heyora · Ayurvastra Activewear for Women · Launching Soon</title>
-    <meta
-      name="description"
-      content="Heyora brings Ayurvastra, India's ancient tradition of herb-dyed healing textiles, to modern women's dryfit: innerwear, sports bras, leggings, yoga wear, tees, hoodies and loungewear. Launching soon."
-    />
-    <meta name="theme-color" content="#140b18" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://heyora.co/" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light only">
+    <title>Heyora | Coming Soon</title>
+    <meta name="description" content="Heyora - Crafting something meaningful. Coming Soon.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Force light mode - prevent dark mode override */
+        :root {
+            color-scheme: light only;
+            /* Light pastel palette */
+            --color-bg: #f5f0eb;
+            --color-bg-warm: #ebe4dc;
+            --color-text: #2a2522;
+            --color-text-muted: #7a7270;
+            --color-accent: #b8977a;
+            --color-accent-dark: #96775c;
+            --color-decoration: rgba(184, 151, 122, 0.45);
+            --color-decoration-strong: rgba(184, 151, 122, 0.65);
+            --color-decoration-soft: rgba(184, 151, 122, 0.25);
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Outfit', sans-serif;
+        }
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://heyora.co/" />
-    <meta property="og:title" content="Heyora · Ayurvastra Activewear · Launching Soon" />
-    <meta
-      property="og:description"
-      content="Ancient Ayurvedic healing textiles, woven into modern women's dryfits. Launching soon."
-    />
-    <meta name="twitter:card" content="summary_large_image" />
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: #f5f0eb !important;
+        }
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Heyora",
-        "url": "https://heyora.co",
-        "description": "Ayurvastra-inspired women's dryfit activewear and innerwear."
-      }
+        body {
+            font-family: var(--font-body);
+            background-color: #f5f0eb !important;
+            color: #2a2522 !important;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-text-fill-color: initial;
+        }
+
+        /* Subtle noise texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* ========== DECORATIVE ELEMENTS - MORE VISIBLE ========== */
+        .decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Large rotating circle - top right */
+        .decoration-circle {
+            width: min(550px, 65vw);
+            height: min(550px, 65vw);
+            border: 1.5px solid var(--color-decoration-strong);
+            border-radius: 50%;
+            top: -12%;
+            right: -12%;
+            animation: rotate 80s linear infinite;
+        }
+
+        .decoration-circle::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border: 1.5px solid var(--color-decoration);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .decoration-circle::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            border: 1px solid var(--color-decoration-soft);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Second rotating circle - bottom left */
+        .decoration-circle-2 {
+            width: min(400px, 50vw);
+            height: min(400px, 50vw);
+            border: 1px solid var(--color-decoration);
+            border-radius: 50%;
+            bottom: -15%;
+            left: -15%;
+            animation: rotate 100s linear infinite reverse;
+        }
+
+        .decoration-circle-2::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border: 1px solid var(--color-decoration-soft);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Vertical accent lines */
+        .decoration-line-left {
+            width: 1px;
+            height: 45vh;
+            background: linear-gradient(to bottom, transparent, var(--color-decoration-strong), transparent);
+            left: 8%;
+            top: 28%;
+        }
+
+        .decoration-line-right {
+            width: 1px;
+            height: 40vh;
+            background: linear-gradient(to bottom, transparent, var(--color-decoration-strong), transparent);
+            right: 10%;
+            bottom: 22%;
+        }
+
+        /* Horizontal accent line */
+        .decoration-line-horizontal {
+            width: 20vw;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-decoration), transparent);
+            top: 20%;
+            left: 5%;
+        }
+
+        /* Dot grid patterns - more visible */
+        .decoration-dots {
+            width: clamp(80px, 12vw, 140px);
+            height: clamp(80px, 12vw, 140px);
+            bottom: 12%;
+            left: 4%;
+            background-image: radial-gradient(circle, var(--color-decoration-strong) 2px, transparent 2px);
+            background-size: 16px 16px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .decoration-dots-right {
+            width: clamp(60px, 10vw, 100px);
+            height: clamp(60px, 10vw, 100px);
+            top: 15%;
+            right: 5%;
+            background-image: radial-gradient(circle, var(--color-decoration) 1.5px, transparent 1.5px);
+            background-size: 14px 14px;
+            animation: pulse 5s ease-in-out infinite reverse;
+        }
+
+        /* Additional dot cluster - center left */
+        .decoration-dots-mid {
+            width: clamp(50px, 8vw, 80px);
+            height: clamp(50px, 8vw, 80px);
+            top: 55%;
+            left: 3%;
+            background-image: radial-gradient(circle, var(--color-decoration) 1.5px, transparent 1.5px);
+            background-size: 12px 12px;
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        /* Elegant arch at bottom */
+        .decoration-arch {
+            width: clamp(250px, 40vw, 450px);
+            height: clamp(125px, 20vw, 225px);
+            border: 1.5px solid var(--color-decoration);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Floating shapes - more visible */
+        .shape {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-diamond {
+            width: clamp(50px, 6vw, 70px);
+            height: clamp(50px, 6vw, 70px);
+            border: 1.5px solid var(--color-decoration-strong);
+            top: 22%;
+            left: 5%;
+            transform: rotate(45deg);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-diamond-2 {
+            width: clamp(30px, 4vw, 45px);
+            height: clamp(30px, 4vw, 45px);
+            border: 1px solid var(--color-decoration);
+            bottom: 28%;
+            right: 8%;
+            transform: rotate(45deg);
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .shape-circle {
+            width: clamp(30px, 4vw, 45px);
+            height: clamp(30px, 4vw, 45px);
+            background: rgba(184, 151, 122, 0.2);
+            border-radius: 50%;
+            top: 48%;
+            right: 6%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .shape-circle-2 {
+            width: clamp(20px, 3vw, 30px);
+            height: clamp(20px, 3vw, 30px);
+            background: rgba(184, 151, 122, 0.15);
+            border-radius: 50%;
+            top: 70%;
+            left: 8%;
+            animation: float 9s ease-in-out infinite;
+        }
+
+        .shape-line-diagonal {
+            width: clamp(100px, 15vw, 180px);
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-decoration-strong), transparent);
+            top: 35%;
+            right: 3%;
+            transform: rotate(-25deg);
+        }
+
+        .shape-line-diagonal-2 {
+            width: clamp(80px, 12vw, 140px);
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-decoration), transparent);
+            bottom: 35%;
+            left: 2%;
+            transform: rotate(20deg);
+        }
+
+        /* Small accent crosses */
+        .shape-cross {
+            width: 24px;
+            height: 24px;
+            bottom: 30%;
+            right: 14%;
+            position: fixed;
+        }
+
+        .shape-cross::before,
+        .shape-cross::after {
+            content: '';
+            position: absolute;
+            background: var(--color-decoration-strong);
+        }
+
+        .shape-cross::before {
+            width: 100%;
+            height: 1.5px;
+            top: 50%;
+            left: 0;
+        }
+
+        .shape-cross::after {
+            width: 1.5px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+        }
+
+        .shape-cross-2 {
+            width: 18px;
+            height: 18px;
+            top: 38%;
+            left: 12%;
+            position: fixed;
+        }
+
+        .shape-cross-2::before,
+        .shape-cross-2::after {
+            content: '';
+            position: absolute;
+            background: var(--color-decoration);
+        }
+
+        .shape-cross-2::before {
+            width: 100%;
+            height: 1px;
+            top: 50%;
+            left: 0;
+        }
+
+        .shape-cross-2::after {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+        }
+
+        /* Organic leaf-inspired curves - hint at sustainability */
+        .shape-leaf {
+            width: clamp(60px, 8vw, 100px);
+            height: clamp(90px, 12vw, 150px);
+            border: 1px solid var(--color-decoration);
+            border-radius: 0 100% 0 100%;
+            top: 60%;
+            right: 4%;
+            transform: rotate(-30deg);
+            animation: sway 10s ease-in-out infinite;
+        }
+
+        .shape-leaf-2 {
+            width: clamp(40px, 6vw, 70px);
+            height: clamp(60px, 9vw, 100px);
+            border: 1px solid var(--color-decoration-soft);
+            border-radius: 100% 0 100% 0;
+            top: 25%;
+            left: 10%;
+            transform: rotate(15deg);
+            animation: sway 12s ease-in-out infinite reverse;
+        }
+
+        /* Soft wave line - comfort/flow */
+        .shape-wave {
+            position: fixed;
+            bottom: 18%;
+            left: 15%;
+            width: clamp(100px, 18vw, 200px);
+            height: 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(45deg); }
+            50% { transform: translateY(-15px) rotate(45deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-30deg) translateX(0); }
+            50% { transform: rotate(-25deg) translateX(5px); }
+        }
+
+        /* Abstract silhouette illustrations - more visible */
+        .illustration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            color: #b8977a;
+            opacity: 0.22;
+        }
+
+        .illustration-left {
+            left: 0%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(120px, 18vw, 200px);
+            height: auto;
+            aspect-ratio: 150 / 350;
+        }
+
+        .illustration-right {
+            right: 0%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(120px, 18vw, 200px);
+            height: auto;
+            aspect-ratio: 150 / 350;
+        }
+
+        /* ========== MAIN LAYOUT ========== */
+        .page-wrapper {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 5vw, 3rem);
+            padding-top: max(clamp(1rem, 3vw, 2rem), env(safe-area-inset-top));
+            padding-left: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-left));
+            padding-right: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-right));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            font-family: var(--font-display);
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+        }
+
+        .header-right {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            color: #96775c !important;
+            -webkit-text-fill-color: #96775c !important;
+            letter-spacing: 0.05em;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: clamp(1rem, 4vw, 2rem);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ========== LOGO - SINGLE LINE ========== */
+        .logo-section {
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 16vw, 9rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: #2a2522 !important;
+            -webkit-text-fill-color: #2a2522 !important;
+            white-space: nowrap;
+        }
+
+        .brand-name .accent {
+            font-style: italic;
+            color: #b8977a !important;
+            -webkit-text-fill-color: #b8977a !important;
+        }
+
+        /* Divider */
+        .divider {
+            width: 50px;
+            height: 1px;
+            background: #b8977a;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            animation: expandWidth 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            transform: scaleX(0);
+        }
+
+        @keyframes expandWidth {
+            to { transform: scaleX(1); }
+        }
+
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Two-line Tagline */
+        .tagline {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.7;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+            opacity: 0;
+            max-width: 500px;
+        }
+
+        /* ========== FORM SECTION ========== */
+        .form-section {
+            width: 100%;
+            max-width: 440px;
+            padding: 0 1rem;
+            animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+            opacity: 0;
+        }
+
+        .form-label {
+            font-family: var(--font-body);
+            font-size: clamp(0.68rem, 1.2vw, 0.72rem);
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            margin-bottom: clamp(0.75rem, 2vw, 1rem);
+            display: block;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid rgba(184, 151, 122, 0.65);
+            border-radius: 2px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.5) !important;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .email-form:focus-within {
+            border-color: #b8977a;
+            box-shadow: 0 0 25px rgba(184, 151, 122, 0.15);
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 0;
+            padding: clamp(0.9rem, 2vw, 1.1rem) clamp(1rem, 2vw, 1.3rem);
+            font-family: var(--font-body);
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            background: transparent !important;
+            border: none;
+            color: #2a2522 !important;
+            -webkit-text-fill-color: #2a2522 !important;
+            outline: none;
+        }
+
+        .email-input::placeholder {
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            opacity: 1;
+        }
+
+        .submit-btn {
+            padding: clamp(0.9rem, 2vw, 1.1rem) clamp(1.2rem, 3vw, 1.8rem);
+            font-family: var(--font-body);
+            font-size: clamp(0.6rem, 1.2vw, 0.68rem);
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: #b8977a !important;
+            color: white !important;
+            -webkit-text-fill-color: white !important;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .submit-btn:hover {
+            background: #96775c !important;
+        }
+
+        .form-note {
+            font-family: var(--font-body);
+            font-size: clamp(0.72rem, 1.3vw, 0.78rem);
+            font-weight: 300;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            margin-top: clamp(0.6rem, 1.5vw, 0.9rem);
+            letter-spacing: 0.02em;
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            padding: 1.5rem 0;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .success-message p {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-style: italic;
+            color: #96775c !important;
+            -webkit-text-fill-color: #96775c !important;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 5vw, 3rem);
+            padding-bottom: max(clamp(1rem, 3vw, 2rem), env(safe-area-inset-bottom));
+            padding-left: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-left));
+            padding-right: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-right));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem 2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-text {
+            font-family: var(--font-body);
+            font-size: clamp(0.66rem, 1.2vw, 0.7rem);
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            text-transform: uppercase;
+            line-height: 1.9;
+        }
+
+        .contact {
+            font-style: normal;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem 0.9rem;
+            padding: 0 clamp(1.5rem, 5vw, 3rem);
+            font-family: var(--font-body);
+            font-size: clamp(0.72rem, 1.3vw, 0.8rem);
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+        }
+
+        .contact-item {
+            color: inherit !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            text-decoration: none;
+            padding: 0.35rem 0;
+        }
+
+        a.contact-item:hover,
+        a.contact-item:focus-visible {
+            -webkit-text-fill-color: #96775c !important;
+        }
+
+        .contact-sep {
+            color: #b8977a;
+            -webkit-text-fill-color: #b8977a !important;
+        }
+
+        .footer-credit {
+            white-space: nowrap;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        .heart {
+            width: 1.15em;
+            height: 1.15em;
+            vertical-align: -0.2em;
+            fill: #f6c35a;
+        }
+
+        .footer-link {
+            color: #96775c !important;
+            -webkit-text-fill-color: #96775c !important;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184, 151, 122, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus-visible {
+            border-color: #96775c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: clamp(1rem, 3vw, 2rem);
+        }
+
+        .social-link {
+            font-family: var(--font-body);
+            font-size: clamp(0.66rem, 1.2vw, 0.7rem);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+            display: inline-block;
+            padding: 0.5rem 0;
+        }
+
+        .social-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0.3rem;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #b8977a;
+            transition: width 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #96775c !important;
+            -webkit-text-fill-color: #96775c !important;
+        }
+
+        .social-link:hover::after {
+            width: 100%;
+        }
+
+        /* ========== RESPONSIVE - TABLET ========== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 0.4rem;
+                text-align: center;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 0.4rem;
+                text-align: center;
+            }
+
+            .illustration {
+                display: none;
+            }
+
+            .decoration-line-left,
+            .decoration-line-right {
+                opacity: 0.6;
+            }
+
+            .illustration {
+                opacity: 0.12;
+            }
+
+            .shape-leaf,
+            .shape-leaf-2 {
+                opacity: 0.6;
+            }
+        }
+
+        /* ========== RESPONSIVE - MOBILE ========== */
+        @media (max-width: 480px) {
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-input {
+                text-align: center;
+                font-size: 16px; /* stops iOS zooming in on focus */
+            }
+
+            .footer-text {
+                letter-spacing: 0.08em;
+            }
+
+            .footer-credit {
+                display: block;
+                white-space: normal;
+            }
+
+            .decoration-dots {
+                display: none;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .contact-sep {
+                display: none;
+            }
+
+            .submit-btn {
+                padding: 1rem;
+            }
+
+            .decoration-circle {
+                width: 280px;
+                height: 280px;
+                top: -100px;
+                right: -100px;
+            }
+
+            .decoration-circle-2 {
+                width: 200px;
+                height: 200px;
+                bottom: -80px;
+                left: -80px;
+            }
+
+            .decoration-line-left,
+            .decoration-line-right,
+            .decoration-line-horizontal,
+            .shape-line-diagonal,
+            .shape-line-diagonal-2,
+            .shape-cross,
+            .shape-cross-2,
+            .shape-wave {
+                display: none;
+            }
+
+            .illustration {
+                display: none;
+            }
+
+            .shape-diamond,
+            .shape-diamond-2,
+            .shape-circle,
+            .shape-circle-2 {
+                opacity: 0.6;
+            }
+
+            .shape-leaf,
+            .shape-leaf-2 {
+                opacity: 0.4;
+            }
+
+            .decoration-dots,
+            .decoration-dots-right,
+            .decoration-dots-mid {
+                opacity: 0.5;
+            }
+
+            .decoration-dots-mid,
+            .shape-circle {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ========== LANDSCAPE MOBILE FIX ========== */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .logo-section {
+                margin-bottom: 1rem;
+            }
+
+            .brand-name {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+
+            .divider {
+                margin-bottom: 1rem;
+            }
+
+            .tagline {
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .header,
+            .footer {
+                padding-top: 0.75rem;
+                padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* ========== FORCE LIGHT MODE - PREVENT DARK MODE ========== */
+        @media (prefers-color-scheme: dark) {
+            html, body {
+                background-color: #f5f0eb !important;
+                color: #2a2522 !important;
+            }
+            
+            .brand-name {
+                color: #2a2522 !important;
+                -webkit-text-fill-color: #2a2522 !important;
+            }
+            
+            .brand-name .accent {
+                color: #b8977a !important;
+                -webkit-text-fill-color: #b8977a !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative elements -->
+    <div class="decoration decoration-circle"></div>
+    <div class="decoration decoration-circle-2"></div>
+    <div class="decoration decoration-line-left"></div>
+    <div class="decoration decoration-line-right"></div>
+    <div class="decoration decoration-line-horizontal"></div>
+    <div class="decoration decoration-dots"></div>
+    <div class="decoration decoration-dots-right"></div>
+    <div class="decoration decoration-dots-mid"></div>
+    <div class="decoration decoration-arch"></div>
+    
+    <div class="shape shape-diamond"></div>
+    <div class="shape shape-diamond-2"></div>
+    <div class="shape shape-circle"></div>
+    <div class="shape shape-circle-2"></div>
+    <div class="shape shape-line-diagonal"></div>
+    <div class="shape shape-line-diagonal-2"></div>
+    <div class="shape-cross"></div>
+    <div class="shape-cross-2"></div>
+    
+    <!-- Organic shapes - sustainability hint -->
+    <div class="shape shape-leaf"></div>
+    <div class="shape shape-leaf-2"></div>
+    
+    <!-- Wave shape -->
+    <svg class="shape-wave" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 20 Q50 0 100 20 T200 20" stroke="rgba(184, 151, 122, 0.4)" stroke-width="1" fill="none"/>
+    </svg>
+
+    <!-- Abstract fashion silhouettes -->
+    <div class="illustration illustration-left">
+        <svg viewBox="0 0 150 350" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <path d="M75 25 Q90 50 75 80 Q60 110 75 140 Q90 170 75 200 Q60 230 75 260 Q90 290 75 320" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="75" cy="40" r="22" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M53 85 Q35 120 45 160" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M97 85 Q115 120 105 160" stroke="currentColor" stroke-width="1" fill="none"/>
+            <ellipse cx="75" cy="120" rx="30" ry="15" stroke="currentColor" stroke-width="0.5" fill="none"/>
+            <path d="M55 200 Q75 280 55 340" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M95 200 Q75 280 95 340" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+    </div>
+    
+    <div class="illustration illustration-right">
+        <svg viewBox="0 0 150 350" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <line x1="75" y1="30" x2="75" y2="320" stroke="currentColor" stroke-width="0.5"/>
+            <circle cx="75" cy="45" r="20" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M55 75 Q40 110 50 150 Q60 190 50 230" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M95 75 Q110 110 100 150 Q90 190 100 230" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M60 230 Q75 300 55 350" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M90 230 Q75 300 95 350" stroke="currentColor" stroke-width="1" fill="none"/>
+            <ellipse cx="75" cy="130" rx="25" ry="40" stroke="currentColor" stroke-width="0.5" fill="none"/>
+        </svg>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">Est. 2026</div>
+            <div class="header-right">Coming Soon</div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Logo - Single line Heyora -->
+                <div class="logo-section">
+                    <h1 class="brand-name">H<span class="accent">e</span>yora</h1>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="tagline">Crafting something meaningful,<br>every thread tells a story worth wearing.</p>
+
+                <div class="form-section">
+                    <label class="form-label">Be the first to know</label>
+                    <form class="email-form" id="signup-form">
+                        <input 
+                            type="email" 
+                            class="email-input" 
+                            placeholder="Enter your email address"
+                            required
+                            aria-label="Email address"
+                        >
+                        <button type="submit" class="submit-btn">Join Us</button>
+                    </form>
+                    <p class="form-note">No spam, just the unveiling.</p>
+                    
+                    <div class="success-message" id="success-message">
+                        <p>Welcome. We'll be in touch.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Contact -->
+        <address class="contact">
+            <a class="contact-item" href="mailto:hey@heyora.co">hey@heyora.co</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <a class="contact-item" href="tel:+919000710471">+91 90007 10471</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <span class="contact-item">Hyderabad 500018, Telangana, India</span>
+        </address>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                © <span class="year">2026</span> heyora.co.
+                <span class="footer-credit">Crafted with <svg class="heart" viewBox="0 0 24 24" role="img" aria-label="love"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.2 0 3.7 1.2 4.6 2.6.9-1.4 2.4-2.6 4.6-2.6 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21Z"/></svg> by <span class="nowrap">© <span class="year">2026</span> <a class="footer-link" href="https://www.vprovesolutions.com" target="_blank" rel="noopener noreferrer">VProve Solutions Private Limited</a>.</span></span>
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Pinterest</a>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module">
+        document.querySelectorAll('.year').forEach((el) => (el.textContent = new Date().getFullYear()));
+
+        // Form submission. Sign-ups are posted to VITE_WAITLIST_ENDPOINT (set in Vercel) when it is configured.
+        const endpoint = import.meta.env.VITE_WAITLIST_ENDPOINT;
+        document.getElementById('signup-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const successMessage = document.getElementById('success-message');
+            const button = form.querySelector('.submit-btn');
+            const note = document.querySelector('.form-note');
+            
+            button.disabled = true;
+            try {
+                if (endpoint) {
+                    const res = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                        body: JSON.stringify({ email: form.querySelector('.email-input').value.trim(), source: 'heyora.co' }),
+                    });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                }
+                form.style.display = 'none';
+                note.style.display = 'none';
+                successMessage.classList.add('show');
+            } catch {
+                note.textContent = 'Something went wrong. Please try again in a moment.';
+            } finally {
+                button.disabled = false;
+            }
+        });
+
+        // Subtle parallax on mouse move (desktop only)
+        if (window.matchMedia('(min-width: 769px)').matches) {
+            document.addEventListener('mousemove', function(e) {
+                const shapes = document.querySelectorAll('.shape-diamond, .shape-diamond-2, .shape-circle, .shape-circle-2');
+                const mouseX = e.clientX / window.innerWidth - 0.5;
+                const mouseY = e.clientY / window.innerHeight - 0.5;
+                
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 10;
+                    const x = mouseX * speed;
+                    const y = mouseY * speed;
+                    const baseRotation = shape.classList.contains('shape-diamond') || shape.classList.contains('shape-diamond-2') ? 'rotate(45deg)' : '';
+                    shape.style.transform = `translate(${x}px, ${y}px) ${baseRotation}`;
+                });
+
+                // Subtle movement for illustrations
+                const illustrations = document.querySelectorAll('.illustration');
+                illustrations.forEach((ill) => {
+                    const x = mouseX * 8;
+                    const y = mouseY * 8;
+                    ill.style.transform = `translateY(calc(-50% + ${y}px)) translateX(${x}px)`;
+                });
+
+                // Gentle movement for leaf shapes
+                const leaves = document.querySelectorAll('.shape-leaf, .shape-leaf-2');
+                leaves.forEach((leaf, index) => {
+                    const speed = 5 + index * 3;
+                    const x = mouseX * speed;
+                    const y = mouseY * speed;
+                    const baseRotation = leaf.classList.contains('shape-leaf') ? '-30deg' : '15deg';
+                    leaf.style.transform = `translate(${x}px, ${y}px) rotate(${baseRotation})`;
+                });
+            });
+        }
     </script>
-  </head>
-  <body>
-    <canvas id="scene" aria-hidden="true"></canvas>
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="nav">
-      <a href="#top" class="brand" aria-label="Heyora home">
-        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 12c6 8 6 16 0 24-6-8-6-16 0-24zm0 24c9-3 16-1 20 6-9 3-16 1-20-6zm0 0c-9-3-16-1-20 6 9 3 16 1 20-6z" />
-          <circle cx="32" cy="48" r="3" />
-        </svg>
-        <span class="brand-name">Heyora</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
-        <span></span><span></span>
-      </button>
-      <nav class="nav-links" id="nav-links" aria-label="Sections">
-        <a href="#top" data-section="top">Home</a>
-        <a href="#collection" data-section="collection">Collections</a>
-        <a href="#ayurvastra" data-section="ayurvastra">Ayurvastra</a>
-        <a href="#notify" class="nav-cta" data-section="notify">Get early access</a>
-      </nav>
-    </header>
-
-    <main id="top">
-      <section class="hero" id="home">
-        <p class="eyebrow reveal">Ayurvastra · आयुर्वस्त्र</p>
-        <h1 class="hero-title reveal">
-          <span class="line">Ancient healing,</span>
-          <span class="line"><em>woven</em> for her.</span>
-        </h1>
-        <p class="hero-sub reveal">
-          Women's dryfit innerwear and activewear inspired by Ayurvastra, India's ancient tradition of herb-dyed healing textiles.
-        </p>
-        <div class="launch-pill reveal">
-          <span class="pulse" aria-hidden="true"></span>
-          Launching Soon
-        </div>
-        <a href="#notify" class="btn btn-primary reveal">Join the waitlist</a>
-        <div class="scroll-cue" aria-hidden="true"><span></span></div>
-      </section>
-
-      <section id="collection" class="section">
-        <svg class="sprite" aria-hidden="true">
-          <defs>
-            <symbol id="g-tee" viewBox="0 0 64 64"><path d="M22 10 14 14 6 24l7 6 5-4v30h28V26l5 4 7-6-8-10-8-4c-2 5-18 5-20 0Z"/><path d="M26 11c2 3 10 3 12 0"/></symbol>
-            <symbol id="g-tunic" viewBox="0 0 64 64"><path d="M22 8 14 12 6 22l7 6 5-4v36h28V24l5 4 7-6-8-10-8-4c-2 5-18 5-20 0Z"/><path d="M18 52h28"/></symbol>
-            <symbol id="g-tank" viewBox="0 0 64 64"><path d="M24 8v8c0 6-4 8-6 12v28h28V28c-2-4-6-6-6-12V8h-4c0 6-8 6-8 0Z"/></symbol>
-            <symbol id="g-cami" viewBox="0 0 64 64"><path d="M23 8v15M41 8v15"/><path d="M20 24c4 5 20 5 24 0l4 32H16Z"/><path d="M17 48h30"/></symbol>
-            <symbol id="g-bra" viewBox="0 0 64 64"><path d="M20 10v15M44 10v15"/><path d="M11 40c0-9 6-15 12-15 4 0 7 3 9 7 2-4 5-7 9-7 6 0 12 6 12 15Z"/><path d="M11 40h42v7H11Z"/></symbol>
-            <symbol id="g-leggings" viewBox="0 0 64 64"><path d="M20 8h24l2 48H35l-3-32-3 32H18Z"/><path d="M20 14h24"/><path d="M41 22v8"/></symbol>
-            <symbol id="g-shorts" viewBox="0 0 64 64"><path d="M16 14h32l4 30-16 2-4-16-4 16-16-2Z"/><path d="M16 20h32"/></symbol>
-            <symbol id="g-skort" viewBox="0 0 64 64"><path d="M18 12h28l6 32H12Z"/><path d="M18 18h28M26 18l-4 26M38 18l4 26"/></symbol>
-            <symbol id="g-panty" viewBox="0 0 64 64"><path d="M10 20h44l-2 8c-8 4-14 10-16 18h-8c-2-8-8-14-16-18Z"/><path d="M12 25h40"/></symbol>
-            <symbol id="g-hoodie" viewBox="0 0 64 64"><path d="M24 12c0-8 16-8 16 0"/><path d="M24 12 14 16 6 34l6 4 6-8v26h28V30l6 8 6-4-8-18-10-4c-2 6-14 6-16 0Z"/><path d="M24 44h16l2 8H22Z"/></symbol>
-            <symbol id="g-jacket" viewBox="0 0 64 64"><path d="M24 10 14 14 6 34l6 4 6-8v26h28V30l6 8 6-4-8-20-10-4-4 4-4-4Z"/><path d="M32 14v42M24 10l8 6 8-6"/></symbol>
-            <symbol id="g-joggers" viewBox="0 0 64 64"><path d="M20 8h24l2 42 2 6H36v-6l-4-26-4 26v6H16l2-6Z"/><path d="M20 14h24M18 50h10M36 50h10"/></symbol>
-            <symbol id="g-set" viewBox="0 0 64 64"><path d="M24 6 18 9l-5 7 5 4 3-2v14h22V18l3 2 5-4-5-7-6-3c-1 3-11 3-12 0Z"/><path d="M21 36h22l1 22h-8l-4-14-4 14h-8Z"/></symbol>
-          </defs>
-        </svg>
-        <div class="section-head reveal">
-          <p class="eyebrow">The collections</p>
-          <h2>Designed around what she needs.</h2>
-          <p class="section-sub">Six herb-dyed dryfit collections, each built for a real need: heat, support, coverage, comfort, care and warmth.</p>
-        </div>
-        <div class="tabs reveal" role="tablist" aria-label="Collections">
-          <button class="tab" role="tab" id="tab-dry" aria-controls="panel-dry" aria-selected="true">
-            <span class="tab-name">Stay Dry</span><span class="tab-sub">Heat &amp; sweat</span>
-          </button>
-          <button class="tab" role="tab" id="tab-hold" aria-controls="panel-hold" aria-selected="false" tabindex="-1">
-            <span class="tab-name">Hold</span><span class="tab-sub">Support &amp; bounce control</span>
-          </button>
-          <button class="tab" role="tab" id="tab-cover" aria-controls="panel-cover" aria-selected="false" tabindex="-1">
-            <span class="tab-name">Cover</span><span class="tab-sub">Coverage &amp; confidence</span>
-          </button>
-          <button class="tab" role="tab" id="tab-ease" aria-controls="panel-ease" aria-selected="false" tabindex="-1">
-            <span class="tab-name">Ease</span><span class="tab-sub">Chafe-free comfort</span>
-          </button>
-          <button class="tab" role="tab" id="tab-care" aria-controls="panel-care" aria-selected="false" tabindex="-1">
-            <span class="tab-name">Care</span><span class="tab-sub">Period &amp; skin care</span>
-          </button>
-          <button class="tab" role="tab" id="tab-layer" aria-controls="panel-layer" aria-selected="false" tabindex="-1">
-            <span class="tab-name">Layer</span><span class="tab-sub">Warmth &amp; travel</span>
-          </button>
-        </div>
-        <div class="panel" role="tabpanel" id="panel-dry" aria-labelledby="tab-dry">
-          <p class="panel-blurb">Built for Indian summers: wick sweat fast, dry in minutes, breathe all day.</p>
-          <div class="cards">
-            <article class="card" data-tilt style="--hue: var(--turmeric)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-tee" /></svg>
-                <span class="swatch-herb">Turmeric</span>
-              </div>
-              <h3>Training Tees</h3>
-              <p>Featherlight knit that pulls sweat off the skin and dries in minutes.</p>
-              <ul class="chips"><li>Moisture-wicking</li><li>Quick-dry</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--tulsi)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-tank" /></svg>
-                <span class="swatch-herb">Neem</span>
-              </div>
-              <h3>Tank Tops</h3>
-              <p>Racerback tanks with laser-cut vents where heat builds up.</p>
-              <ul class="chips"><li>Breathable</li><li>Mesh vents</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--madder)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-cami" /></svg>
-                <span class="swatch-herb">Tulsi</span>
-              </div>
-              <h3>Everyday Inners</h3>
-              <p>Second-skin layers that keep you dry under work wear.</p>
-              <ul class="chips"><li>Dry-touch</li><li>Lightweight</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--indigo)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-cami" /></svg>
-                <span class="swatch-herb">Vetiver</span>
-              </div>
-              <h3>Camisoles</h3>
-              <p>Cooling under-layers for kurtas, sarees and shirts.</p>
-              <ul class="chips"><li>Cooling</li><li>Invisible lines</li></ul>
-            </article>
-          </div>
-        </div>
-        <div class="panel" role="tabpanel" id="panel-hold" aria-labelledby="tab-hold" hidden>
-          <p class="panel-blurb">The right support for every activity, without wires that dig.</p>
-          <div class="cards">
-            <article class="card" data-tilt style="--hue: var(--tulsi)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-bra" /></svg>
-                <span class="swatch-herb">Tulsi</span>
-              </div>
-              <h3>Low-Impact Bras</h3>
-              <p>Soft hold for yoga, pilates and walking.</p>
-              <ul class="chips"><li>Wire-free</li><li>Removable cups</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--madder)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-bra" /></svg>
-                <span class="swatch-herb">Manjistha</span>
-              </div>
-              <h3>Medium-Impact Bras</h3>
-              <p>Balanced support for gym, cycling and dance.</p>
-              <ul class="chips"><li>Wide band</li><li>Adjustable straps</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--indigo)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-bra" /></svg>
-                <span class="swatch-herb">Indigo</span>
-              </div>
-              <h3>High-Impact Bras</h3>
-              <p>Encapsulated cups that lock in for running and HIIT.</p>
-              <ul class="chips"><li>Bounce control</li><li>Hook-back</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--turmeric)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-bra" /></svg>
-                <span class="swatch-herb">Aloe</span>
-              </div>
-              <h3>Bralettes</h3>
-              <p>All-day comfort with a gentle lift and no-dig band.</p>
-              <ul class="chips"><li>Wire-free</li><li>Soft-touch</li></ul>
-            </article>
-          </div>
-        </div>
-        <div class="panel" role="tabpanel" id="panel-cover" aria-labelledby="tab-cover" hidden>
-          <p class="panel-blurb">Move freely without thinking twice: opaque, secure and stay-put.</p>
-          <div class="cards">
-            <article class="card" data-tilt style="--hue: var(--indigo)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-leggings" /></svg>
-                <span class="swatch-herb">Indigo</span>
-              </div>
-              <h3>Squat-Proof Leggings</h3>
-              <p>Dense, opaque knit with a high-rise waist that stays up.</p>
-              <ul class="chips"><li>Squat-proof</li><li>Phone pocket</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--madder)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-tunic" /></svg>
-                <span class="swatch-herb">Manjistha</span>
-              </div>
-              <h3>Longline Tops</h3>
-              <p>Hip-covering tunic tees for gym, travel and errands.</p>
-              <ul class="chips"><li>Full coverage</li><li>Relaxed fit</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--turmeric)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-skort" /></svg>
-                <span class="swatch-herb">Turmeric</span>
-              </div>
-              <h3>Active Skorts</h3>
-              <p>The ease of a skirt with built-in shorts underneath.</p>
-              <ul class="chips"><li>Built-in shorts</li><li>Pockets</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--tulsi)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-leggings" /></svg>
-                <span class="swatch-herb">Neem</span>
-              </div>
-              <h3>Full-Length Yoga Pants</h3>
-              <p>Ankle-length pants that never turn sheer when you stretch.</p>
-              <ul class="chips"><li>Non-sheer</li><li>4-way stretch</li></ul>
-            </article>
-          </div>
-        </div>
-        <div class="panel" role="tabpanel" id="panel-ease" aria-labelledby="tab-ease" hidden>
-          <p class="panel-blurb">Nothing that rubs, rides up or pinches, even on long days.</p>
-          <div class="cards">
-            <article class="card" data-tilt style="--hue: var(--tulsi)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-shorts" /></svg>
-                <span class="swatch-herb">Aloe</span>
-              </div>
-              <h3>Anti-Chafe Shorts</h3>
-              <p>Longer inseam shorts with grippers that stop thigh rub.</p>
-              <ul class="chips"><li>No ride-up</li><li>Flatlock seams</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--madder)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-panty" /></svg>
-                <span class="swatch-herb">Neem</span>
-              </div>
-              <h3>Seamless Panties</h3>
-              <p>Tagless, edge-free briefs with no lines under fitted wear.</p>
-              <ul class="chips"><li>Seamless</li><li>Tagless</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--indigo)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-joggers" /></svg>
-                <span class="swatch-herb">Vetiver</span>
-              </div>
-              <h3>Easy Joggers</h3>
-              <p>Soft drawcord waist that never digs, with zip pockets.</p>
-              <ul class="chips"><li>No-dig waist</li><li>Zip pockets</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--turmeric)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-shorts" /></svg>
-                <span class="swatch-herb">Tulsi</span>
-              </div>
-              <h3>Training Shorts</h3>
-              <p>Quick-dry shorts with a built-in liner.</p>
-              <ul class="chips"><li>Built-in liner</li><li>Quick-dry</li></ul>
-            </article>
-          </div>
-        </div>
-        <div class="panel" role="tabpanel" id="panel-care" aria-labelledby="tab-care" hidden>
-          <p class="panel-blurb">Gentle on sensitive skin and comfortable on every day of the month.</p>
-          <div class="cards">
-            <article class="card" data-tilt style="--hue: var(--madder)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-panty" /></svg>
-                <span class="swatch-herb">Neem</span>
-              </div>
-              <h3>Period Panties</h3>
-              <p>Absorbent, leak-resistant layers for heavy days and backup.</p>
-              <ul class="chips"><li>Leak-resistant</li><li>Breathable gusset</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--tulsi)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-panty" /></svg>
-                <span class="swatch-herb">Aloe</span>
-              </div>
-              <h3>Everyday Briefs</h3>
-              <p>Breathable cotton-touch gussets for daily intimate comfort.</p>
-              <ul class="chips"><li>Breathable gusset</li><li>Soft elastic</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--turmeric)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-tee" /></svg>
-                <span class="swatch-herb">Sandalwood</span>
-              </div>
-              <h3>Sleep Tees</h3>
-              <p>Loose, airy tees that stay dry through warm nights.</p>
-              <ul class="chips"><li>Cooling</li><li>Sensitive skin</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--indigo)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-set" /></svg>
-                <span class="swatch-herb">Vetiver</span>
-              </div>
-              <h3>Lounge Sets</h3>
-              <p>Relaxed co-ord sets for rest days and recovery.</p>
-              <ul class="chips"><li>Relaxed fit</li><li>Herb-dyed</li></ul>
-            </article>
-          </div>
-        </div>
-        <div class="panel" role="tabpanel" id="panel-layer" aria-labelledby="tab-layer" hidden>
-          <p class="panel-blurb">Light layers for warm-ups, AC offices, commutes and cool evenings.</p>
-          <div class="cards">
-            <article class="card" data-tilt style="--hue: var(--indigo)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-hoodie" /></svg>
-                <span class="swatch-herb">Indigo</span>
-              </div>
-              <h3>Hoodies</h3>
-              <p>Brushed-back hoodies with thumbholes and a roomy hood.</p>
-              <ul class="chips"><li>Thumbholes</li><li>Soft brushed</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--madder)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-jacket" /></svg>
-                <span class="swatch-herb">Manjistha</span>
-              </div>
-              <h3>Zip Jackets</h3>
-              <p>Packable track jackets for runs and travel.</p>
-              <ul class="chips"><li>Packable</li><li>Zip pockets</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--tulsi)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-joggers" /></svg>
-                <span class="swatch-herb">Neem</span>
-              </div>
-              <h3>Joggers</h3>
-              <p>Tapered joggers that go from studio to street.</p>
-              <ul class="chips"><li>Tapered</li><li>4-way stretch</li></ul>
-            </article>
-            <article class="card" data-tilt style="--hue: var(--turmeric)">
-              <div class="swatch" aria-hidden="true">
-                <svg class="garment"><use href="#g-set" /></svg>
-                <span class="swatch-herb">Turmeric</span>
-              </div>
-              <h3>Co-ord Sets</h3>
-              <p>Matching top and bottom sets, herb-dyed to pair perfectly.</p>
-              <ul class="chips"><li>Matching set</li><li>Travel-ready</li></ul>
-            </article>
-          </div>
-        </div>
-        <ul class="features reveal" aria-label="Every Heyora piece is">
-          <li>Moisture-wicking</li>
-          <li>Quick-dry</li>
-          <li>4-way stretch</li>
-          <li>Breathable</li>
-          <li>Squat-proof</li>
-          <li>Flatlock seams</li>
-          <li>Tagless comfort</li>
-          <li>Herb-dyed colour</li>
-        </ul>
-      </section>
-
-      <section id="ayurvastra" class="section story">
-        <div class="story-copy reveal">
-          <p class="eyebrow">The tradition</p>
-          <h2>What is Ayurvastra?</h2>
-          <p>
-            In Sanskrit, <em>ayur</em> means life and <em>vastra</em> means cloth. Ayurvastra is an ancient Indian
-            tradition of healing textiles that joins the wisdom of Ayurveda with sustainable handloom weaving, kept
-            alive today by artisan weavers in Kerala, most famously in Balaramapuram.
-          </p>
-          <p>
-            Yarn is steeped in a <em>kashayam</em>, a herbal decoction of roots, bark, leaves and flowers, and fixed
-            with natural mordants such as myrobalan and alum instead of synthetic dyes and heavy metals. Heyora carries
-            that heritage into performance wear for the modern woman: quick-dry, breathable and gentle, from the gym
-            floor to the yoga mat to everyday life.
-          </p>
-        </div>
-        <ol class="pillars">
-          <li class="reveal">
-            <span class="pillar-num">I</span>
-            <div>
-              <h3>Kashayam</h3>
-              <p>Turmeric, neem, tulsi, manjistha and indigo are simmered into a herbal infusion.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="pillar-num">II</span>
-            <div>
-              <h3>Yarn-deep colour</h3>
-              <p>The yarn is dyed before it is woven, never dip-dyed, so colour runs through every thread.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="pillar-num">III</span>
-            <div>
-              <h3>Handloom roots</h3>
-              <p>Inspired by generations of Kerala weavers and their slow, low-waste craft.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="pillar-num">IV</span>
-            <div>
-              <h3>Dryfit performance</h3>
-              <p>Engineered to wick, breathe and stretch, so tradition never slows you down.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section id="notify" class="section notify">
-        <div class="notify-panel reveal">
-          <p class="eyebrow">Be the first to wear it</p>
-          <h2>Launching Soon!!!</h2>
-          <p>Join the waitlist for early access, founding-member pricing and the first drop.</p>
-          <form class="notify-form" id="notify-form" novalidate>
-            <label class="sr-only" for="email">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
-            <button type="submit" class="btn btn-primary">Notify me</button>
-          </form>
-          <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-brand">
-        <span class="footer-logo">Heyora</span>
-        <span class="footer-tag">Ayurvastra for the modern woman</span>
-      </div>
-      <p class="footer-legal">
-        © <span class="year">2026</span> heyora.co.
-        <span class="footer-credit">Crafted with <svg class="heart" viewBox="0 0 24 24" role="img" aria-label="love"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.2 0 3.7 1.2 4.6 2.6.9-1.4 2.4-2.6 4.6-2.6 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21Z"/></svg> by <strong>© <span class="year">2026</span> <a class="footer-link" href="https://www.vprovesolutions.com" target="_blank" rel="noopener noreferrer">VProve Solutions Private Limited</a>.</strong></span>
-      </p>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
-  </body>
+</body>
 </html>
