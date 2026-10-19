@@ -1,7 +1,6 @@
 # Heyora · Launching Soon
 
-Static "launching soon" site for **Heyora**, Ayurvastra-inspired women's dryfit innerwear and activewear
-(inners, tees, hoodies, panties). Built with Vite and Three.js. Designed & developed by VPROVE SOLUTIONS PRIVATE LIMITED.
+Static "coming soon" landing page for **Heyora** (Active & Lifestyle), built with Vite. Designed & developed by VPROVE SOLUTIONS PRIVATE LIMITED.
 
 ## Develop
 
@@ -12,20 +11,14 @@ npm run build    # outputs dist/
 npm run preview  # serve the production build
 ```
 
-- `index.html`: page copy and sections
-- `src/scene.js`: the 3D scene (handloom fabric shader, golden lotus chakra, pollen particles)
-- `src/main.js`: scroll reveals, card tilt, waitlist form
-- `src/style.css`: styles and brand palette
-
-The 3D scene loads in its own chunk after the page text, pauses when the tab is hidden, renders a
-still frame for visitors who prefer reduced motion, and falls back to a CSS gradient without WebGL.
+- `index.html`: the whole page (markup, styles and the waitlist form script) as supplied by the client
 
 ## Waitlist sign-ups
 
 The form posts `{ email, source }` as JSON to `VITE_WAITLIST_ENDPOINT` when that environment
 variable is set (for example a Formspree form URL or a Google Apps Script web app). Add it in
 Vercel under Project → Settings → Environment Variables and redeploy. Without it, the form only
-validates and thanks the visitor; no email is stored.
+thanks the visitor; no email is stored.
 
 ## Deploy on Vercel
 
