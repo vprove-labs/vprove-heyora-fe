@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="light only">
     <title>Heyora | Coming Soon</title>
     <meta name="description" content="Heyora - Crafting something meaningful. Coming Soon.">
@@ -421,6 +421,9 @@
         /* Header */
         .header {
             padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 5vw, 3rem);
+            padding-top: max(clamp(1rem, 3vw, 2rem), env(safe-area-inset-top));
+            padding-left: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-left));
+            padding-right: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-right));
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -542,7 +545,7 @@
 
         .form-label {
             font-family: var(--font-body);
-            font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+            font-size: clamp(0.68rem, 1.2vw, 0.72rem);
             font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
@@ -611,7 +614,7 @@
 
         .form-note {
             font-family: var(--font-body);
-            font-size: clamp(0.65rem, 1.3vw, 0.72rem);
+            font-size: clamp(0.72rem, 1.3vw, 0.78rem);
             font-weight: 300;
             color: #7a7270 !important;
             -webkit-text-fill-color: #7a7270 !important;
@@ -641,20 +644,86 @@
         /* ========== FOOTER ========== */
         .footer {
             padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 5vw, 3rem);
+            padding-bottom: max(clamp(1rem, 3vw, 2rem), env(safe-area-inset-bottom));
+            padding-left: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-left));
+            padding-right: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-right));
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem 2rem;
             flex-shrink: 0;
         }
 
         .footer-text {
             font-family: var(--font-body);
-            font-size: clamp(0.6rem, 1.2vw, 0.68rem);
+            font-size: clamp(0.66rem, 1.2vw, 0.7rem);
             font-weight: 300;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             color: #7a7270 !important;
             -webkit-text-fill-color: #7a7270 !important;
             text-transform: uppercase;
+            line-height: 1.9;
+        }
+
+        .contact {
+            font-style: normal;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem 0.9rem;
+            padding: 0 clamp(1.5rem, 5vw, 3rem);
+            font-family: var(--font-body);
+            font-size: clamp(0.72rem, 1.3vw, 0.8rem);
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            color: #7a7270 !important;
+            -webkit-text-fill-color: #7a7270 !important;
+        }
+
+        .contact-item {
+            color: inherit !important;
+            -webkit-text-fill-color: #7a7270 !important;
+            text-decoration: none;
+            padding: 0.35rem 0;
+        }
+
+        a.contact-item:hover,
+        a.contact-item:focus-visible {
+            -webkit-text-fill-color: #96775c !important;
+        }
+
+        .contact-sep {
+            color: #b8977a;
+            -webkit-text-fill-color: #b8977a !important;
+        }
+
+        .footer-credit {
+            white-space: nowrap;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        .heart {
+            width: 1.15em;
+            height: 1.15em;
+            vertical-align: -0.2em;
+            fill: #f6c35a;
+        }
+
+        .footer-link {
+            color: #96775c !important;
+            -webkit-text-fill-color: #96775c !important;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184, 151, 122, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus-visible {
+            border-color: #96775c;
         }
 
         .social-links {
@@ -664,7 +733,7 @@
 
         .social-link {
             font-family: var(--font-body);
-            font-size: clamp(0.6rem, 1.2vw, 0.68rem);
+            font-size: clamp(0.66rem, 1.2vw, 0.7rem);
             font-weight: 400;
             letter-spacing: 0.12em;
             color: #7a7270 !important;
@@ -673,12 +742,14 @@
             text-transform: uppercase;
             transition: color 0.3s ease;
             position: relative;
+            display: inline-block;
+            padding: 0.5rem 0;
         }
 
         .social-link::after {
             content: '';
             position: absolute;
-            bottom: -3px;
+            bottom: 0.3rem;
             left: 0;
             width: 0;
             height: 1px;
@@ -705,8 +776,12 @@
 
             .footer {
                 flex-direction: column;
-                gap: 0.8rem;
+                gap: 0.4rem;
                 text-align: center;
+            }
+
+            .illustration {
+                display: none;
             }
 
             .decoration-line-left,
@@ -732,6 +807,29 @@
 
             .email-input {
                 text-align: center;
+                font-size: 16px; /* stops iOS zooming in on focus */
+            }
+
+            .footer-text {
+                letter-spacing: 0.08em;
+            }
+
+            .footer-credit {
+                display: block;
+                white-space: normal;
+            }
+
+            .decoration-dots {
+                display: none;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .contact-sep {
+                display: none;
             }
 
             .submit-btn {
@@ -784,6 +882,19 @@
             .decoration-dots-mid {
                 opacity: 0.5;
             }
+
+            .decoration-dots-mid,
+            .shape-circle {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         /* ========== LANDSCAPE MOBILE FIX ========== */
@@ -807,6 +918,12 @@
             .tagline {
                 margin-bottom: 1rem;
                 font-size: 0.95rem;
+            }
+
+            .header,
+            .footer {
+                padding-top: 0.75rem;
+                padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
             }
         }
 
@@ -924,9 +1041,21 @@
             </div>
         </main>
 
+        <!-- Contact -->
+        <address class="contact">
+            <a class="contact-item" href="mailto:hey@heyora.co">hey@heyora.co</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <a class="contact-item" href="tel:+919000710471">+91 90007 10471</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <span class="contact-item">Hyderabad 500018, Telangana, India</span>
+        </address>
+
         <!-- Footer -->
         <footer class="footer">
-            <p class="footer-text">© 2026 Heyora</p>
+            <p class="footer-text">
+                © <span class="year">2026</span> heyora.co.
+                <span class="footer-credit">Crafted with <svg class="heart" viewBox="0 0 24 24" role="img" aria-label="love"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.2 0 3.7 1.2 4.6 2.6.9-1.4 2.4-2.6 4.6-2.6 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21Z"/></svg> by <span class="nowrap">© <span class="year">2026</span> <a class="footer-link" href="https://www.vprovesolutions.com" target="_blank" rel="noopener noreferrer">VProve Solutions Private Limited</a>.</span></span>
+            </p>
             <div class="social-links">
                 <a href="#" class="social-link">Instagram</a>
                 <a href="#" class="social-link">Pinterest</a>
@@ -935,6 +1064,8 @@
     </div>
 
     <script type="module">
+        document.querySelectorAll('.year').forEach((el) => (el.textContent = new Date().getFullYear()));
+
         // Form submission. Sign-ups are posted to VITE_WAITLIST_ENDPOINT (set in Vercel) when it is configured.
         const endpoint = import.meta.env.VITE_WAITLIST_ENDPOINT;
         document.getElementById('signup-form').addEventListener('submit', async function(e) {
